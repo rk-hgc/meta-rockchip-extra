@@ -32,3 +32,5 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-rockchip"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-rockchip"
 
 IMAGE_CLASSES += "rockchip-next-image"
+
+DEFAULTTUNE_rk3288="cortexa17hf-neon-vfpv4"
