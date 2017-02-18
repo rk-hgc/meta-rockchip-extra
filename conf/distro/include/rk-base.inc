@@ -1,3 +1,5 @@
+require conf/distro/poky.conf
+
 DISTRO = "rk-base"
 DISTRO_NAME = "Rockchip Distro Base"
 SDK_VENDOR = "-rksdk"
