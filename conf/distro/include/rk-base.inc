@@ -13,6 +13,7 @@ DISTROOVERRIDES = "rockchip"
 # Rockchip BSP default settings
 
 PREFERRED_VERSION_libdrm = "rk"
+PREFERRED_VERSION_xserver-xorg = "rk"
 
 PREFERRED_PROVIDER_virtual/egl = "mali-userspace"
 PREFERRED_PROVIDER_virtual/libgles1 = "mali-userspace"
