@@ -14,7 +14,10 @@ DISTROOVERRIDES = "rockchip"
 
 PREFERRED_VERSION_libdrm = "rk"
 PREFERRED_VERSION_xserver-xorg = "rk"
-PREFERRED_VERSION_xserver-nodm-init = "1.0"
+PREFERRED_VERSION_xserver-nodm-init = "2.0"
+XSERVER ?= "xserver-xorg \
+		   xf86-input-libinput \
+		   xf86-video-modesetting"
 
 PREFERRED_PROVIDER_virtual/egl = "mali-userspace"
 PREFERRED_PROVIDER_virtual/libgles1 = "mali-userspace"
