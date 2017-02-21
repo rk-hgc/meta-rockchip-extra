@@ -32,4 +32,6 @@ QT_DEMOS = " \
 IMAGE_INSTALL += " \
     ${COMMON_INSTALL} \
     ${QT_DEMOS} \
+    autostart \
+    packagegroup-fonts-truetype \
 "
