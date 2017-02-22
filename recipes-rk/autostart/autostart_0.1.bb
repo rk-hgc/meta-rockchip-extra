@@ -6,7 +6,10 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 USE_X11 = "${@bb.utils.contains("DISTRO_FEATURES", "x11", "yes", "no", d)}"
 USE_WL = "${@bb.utils.contains("DISTRO_FEATURES", "wayland", "yes", "no", d)}"
 
-SRC_URI = "file://mini-custom-x-session"
+SRC_URI = " \
+	file://mini-custom-x-session \
+	file://S124autostart.sh \
+"
 S = "${WORKDIR}"
 
 RDEPENDS_${PN} = "sudo"
@@ -22,6 +25,9 @@ do_install() {
 	if [ "${USE_X11}" = "yes" ]; then
 		install -d ${D}/${bindir}
 		install -m 0755 ${S}/mini-custom-x-session ${D}/${bindir}
+	else
+		install -d ${D}/${sysconfdir}/rc5.d
+		install -m 0755 ${S}/S124autostart.sh ${D}/${sysconfdir}/rc5.d
 	fi
 
 }

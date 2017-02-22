@@ -31,8 +31,9 @@ QT_DEMOS = " \
 "
 
 IMAGE_INSTALL += " \
-	${@base_contains('DISTRO_FEATURES', 'wayland', 'qtwayland', '', d)} \
+	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'qtwayland', '', d)} \
 	${COMMON_INSTALL} \
 	${QT_DEMOS} \
+	autostart \
 	packagegroup-fonts-truetype \
 "
