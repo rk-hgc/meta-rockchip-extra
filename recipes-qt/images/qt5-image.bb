@@ -11,27 +11,28 @@ require recipes-rk/images/rk-image-multimedia.bb
 
 COMMON_INSTALL = " \
 	qtbase	\
-    qtdeclarative \
-    qtmultimedia \
-    qtsvg \
-    qtsensors \
-    qtimageformats \
-    qtsystems \
-    qtscript \
-    qt3d \
-    qtwebkit \
-    qtgraphicaleffects \
-    qtconnectivity \
-    qtlocation \
+	qtdeclarative \
+	qtmultimedia \
+	qtsvg \
+	qtsensors \
+	qtimageformats \
+	qtsystems \
+	qtscript \
+	qt3d \
+	qtwebkit \
+	qtgraphicaleffects \
+	qtconnectivity \
+	qtlocation \
 "
 
 QT_DEMOS = " \
-    qtsmarthome \
+	qtsmarthome \
+	qt5-opengles2-test \
 "
 
 IMAGE_INSTALL += " \
-    ${COMMON_INSTALL} \
-    ${QT_DEMOS} \
-    autostart \
-    packagegroup-fonts-truetype \
+	${@base_contains('DISTRO_FEATURES', 'wayland', 'qtwayland', '', d)} \
+	${COMMON_INSTALL} \
+	${QT_DEMOS} \
+	packagegroup-fonts-truetype \
 "
