@@ -24,6 +24,7 @@ PREFERRED_PROVIDER_virtual/libgles1 = "mali-userspace"
 PREFERRED_PROVIDER_virtual/libgles2 = "mali-userspace"
 PREFERRED_PROVIDER_virtual/libopencl = "mali-userspace"
 
+PREFERRED_VERSION_mali-userspace_rk3036 = "mali400"
 PREFERRED_VERSION_mali-userspace_rk3288 = "t76x"
 PREFERRED_VERSION_mali-userspace_rk3399 = "t860"
 
@@ -38,5 +39,6 @@ ASSUME_SHLIBS += "libwayland-egl.so:mali-userspace"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-rockchip"
 
+DEFAULTTUNE_rk3036="cortexa9thf-vfpv3"
 DEFAULTTUNE_rk3288="cortexa17hf-neon-vfpv4"
 DEFAULTTUNE_rk3399="aarch64"
