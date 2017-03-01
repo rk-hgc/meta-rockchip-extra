@@ -12,5 +12,4 @@
 
 export QT_QPA_PLATFORM=eglfs
 
-cd /usr/share/qtsmarthome-1.0/
-./smarthome &> /dev/null &
+/usr/share/rockery-git/rockery &> /dev/null &
