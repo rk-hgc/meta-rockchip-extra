@@ -23,6 +23,7 @@ COMMON_INSTALL = " \
 	qtgraphicaleffects \
 	qtconnectivity \
 	qtlocation \
+	qtquickcontrols \
 	qtquickcontrols2 \
 "
 
