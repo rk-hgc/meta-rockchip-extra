@@ -28,6 +28,7 @@ COMMON_INSTALL = " \
 "
 
 QT_DEMOS = " \
+	rockery \
 	qtsmarthome \
 	qt5-opengles2-test \
 "
