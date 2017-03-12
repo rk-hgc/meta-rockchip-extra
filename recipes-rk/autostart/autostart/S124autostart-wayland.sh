@@ -14,5 +14,7 @@ export QT_QPA_PLATFORM=wayland-egl
 export XDG_RUNTIME_DIR=/run/user/0
 export WAYLAND_DISPLAY=wayland-0
 
+
+
 cd /usr/share/rockery-git/
-./rockery -f &> /dev/null &
+sleep 1 && ./rockery -f &> /dev/null &
