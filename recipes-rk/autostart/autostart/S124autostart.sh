@@ -11,5 +11,14 @@
 ### END INIT INFO
 
 export QT_QPA_PLATFORM=eglfs
+export QT_QPA_EGLFS_KMS_CONFIG=/tmp/qt.json
+
+cat > /tmp/qt.json <<EOF
+{
+  "device": "/dev/dri/card0",
+  "hwcursor": true,
+  "pbuffers": true
+}
+EOF
 
 /usr/share/rockery-git/rockery &> /dev/null &

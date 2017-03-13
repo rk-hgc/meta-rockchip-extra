@@ -13,6 +13,8 @@ SRC_URI = " \
 "
 S = "${WORKDIR}"
 
+DEPENDS = "rockery"
+
 RDEPENDS_${PN} = "sudo"
 
 inherit update-alternatives
