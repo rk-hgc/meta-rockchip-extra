@@ -19,19 +19,19 @@ XSERVER ?= "xserver-xorg \
 		   xf86-input-libinput \
 		   xf86-video-modesetting"
 
-PREFERRED_PROVIDER_virtual/egl = "mali-userspace"
-PREFERRED_PROVIDER_virtual/libgles1 = "mali-userspace"
-PREFERRED_PROVIDER_virtual/libgles2 = "mali-userspace"
-PREFERRED_PROVIDER_virtual/libopencl = "mali-userspace"
+PREFERRED_PROVIDER_virtual/egl = "rockchip-mali"
+PREFERRED_PROVIDER_virtual/libgles1 = "rockchip-mali"
+PREFERRED_PROVIDER_virtual/libgles2 = "rockchip-mali"
+PREFERRED_PROVIDER_virtual/libopencl = "rockchip-mali"
 
 # Workaround: libmali.so provided by rk having no SONAME field in it
 # so add it to fix rdepends problems
-ASSUME_SHLIBS += "libEGL.so:mali-userspace"
-ASSUME_SHLIBS += "libGLESv1_CM.so:mali-userspace"
-ASSUME_SHLIBS += "libGLESv2.so:mali-userspace"
-ASSUME_SHLIBS += "libOpenCL.so:mali-userspace"
-ASSUME_SHLIBS += "libgbm.so:mali-userspace"
-ASSUME_SHLIBS += "libwayland-egl.so:mali-userspace"
+ASSUME_SHLIBS += "libEGL.so:rockchip-mali"
+ASSUME_SHLIBS += "libGLESv1_CM.so:rockchip-mali"
+ASSUME_SHLIBS += "libGLESv2.so:rockchip-mali"
+ASSUME_SHLIBS += "libOpenCL.so:rockchip-mali"
+ASSUME_SHLIBS += "libgbm.so:rockchip-mali"
+ASSUME_SHLIBS += "libwayland-egl.so:rockchip-mali"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-rockchip"
 
