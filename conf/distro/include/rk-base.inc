@@ -35,6 +35,6 @@ ASSUME_SHLIBS += "libwayland-egl.so:rockchip-mali"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-rockchip"
 
-DEFAULTTUNE_rk3036="cortexa9thf-vfpv3"
+DEFAULTTUNE_rk3036="cortexa7hf-neon-vfpv4"
 DEFAULTTUNE_rk3288="cortexa17hf-neon-vfpv4"
 DEFAULTTUNE_rk3399="aarch64"
