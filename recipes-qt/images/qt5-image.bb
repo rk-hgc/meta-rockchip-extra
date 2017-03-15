@@ -19,7 +19,7 @@ COMMON_INSTALL = " \
 	qtsystems \
 	qtscript \
 	qt3d \
-	qtwebkit \
+	qtwebengine \
 	qtgraphicaleffects \
 	qtconnectivity \
 	qtlocation \
