@@ -10,8 +10,6 @@ S = "${WORKDIR}"
 
 inherit update-rc.d
 
-DEPENDS = "cpufrequtils"
-
 do_install () {
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/dvfs-rules.sh ${D}${sysconfdir}/init.d/dvfs-rules.sh

@@ -4,9 +4,9 @@
 DESCRIPTION = "A image used for test and benchmark."
 
 IMAGE_FEATURES += " \
-    debug-tweaks \
-    tools-testapps \
-    tools-profile \
+	debug-tweaks \
+	tools-testapps \
+	tools-profile \
 "
 
 require recipes-rk/images/rk-image-multimedia.bb

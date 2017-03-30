@@ -6,16 +6,14 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 USE_X11 = "${@bb.utils.contains("DISTRO_FEATURES", "x11", "yes", "no", d)}"
 USE_WL = "${@bb.utils.contains("DISTRO_FEATURES", "wayland", "yes", "no", d)}"
 
+DEPENDS = "rockery"
+
 SRC_URI = " \
 	file://mini-custom-x-session \
 	file://S124autostart-wayland.sh \
 	file://S124autostart.sh \
 "
 S = "${WORKDIR}"
-
-DEPENDS = "rockery"
-
-RDEPENDS_${PN} = "sudo"
 
 inherit update-alternatives
 
@@ -37,3 +35,5 @@ do_install() {
 	fi
 
 }
+
+RDEPENDS_${PN} = "sudo"

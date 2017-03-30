@@ -9,8 +9,6 @@ SRC_URI = " \
 "
 S = "${WORKDIR}"
 
-RDEPENDS_${PN} += "e2fsprogs-resize2fs gptfdisk parted util-linux udev"
-
 inherit update-rc.d
 
 do_install () {
@@ -24,6 +22,8 @@ do_install () {
 	sed -i -e "s:@bindir@:${bindir}:; s:@sbindir@:${sbindir}:; s:@sysconfdir@:${sysconfdir}:" \
 			${D}${sysconfdir}/init.d/resize-helper.sh
 }
+
+RDEPENDS_${PN} += "e2fsprogs-resize2fs gptfdisk parted util-linux udev"
 
 INITSCRIPT_NAME = "resize-helper.sh"
 INITSCRIPT_PARAMS = "start 22 5 3 ."
