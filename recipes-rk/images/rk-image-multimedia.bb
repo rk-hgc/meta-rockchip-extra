@@ -6,5 +6,6 @@ DESCRIPTION = "A image with Rockchip's multimedia packages."
 require recipes-rk/images/rk-image-base.bb
 
 CORE_IMAGE_EXTRA_INSTALL += " \
+	alsa-utils \
 	packagegroup-rk-gstreamer-full \
 "
