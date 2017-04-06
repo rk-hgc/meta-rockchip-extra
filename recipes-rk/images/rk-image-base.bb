@@ -12,10 +12,20 @@ LICENSE = "MIT"
 
 inherit core-image
 
-CORE_IMAGE_EXTRA_INSTALL += " \
+TASK_INSTALL = " \
 	resize2fs \
 	dvfs-rules \
-	firmware-rk \
+"
+
+RF_INSTALL = " \
+	firmware-rk-wifi \
+	firmware-rk-bt \
+	brcm-patchram-plus \
+"
+
+CORE_IMAGE_EXTRA_INSTALL += " \
+	${TASK_INSTALL} \
+	${RF_INSTALL} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
 						'weston weston-init weston-examples \

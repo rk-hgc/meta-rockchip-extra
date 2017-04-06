@@ -15,8 +15,16 @@ S = "${WORKDIR}/git"
 inherit allarch
 
 do_install () {
-	install -d ${D}/system/etc/
-	cp -rf ${S}/firmware/* ${D}/system/etc/
+	install -d ${D}/system/etc/firmware/
+	cp -rf ${S}/firmware/wifi/* ${D}/system/etc/firmware/
+
+	install -d ${D}/lib/firmware/brcm/
+	cp -rf ${S}/firmware/bluetooth/bcm*.hcd ${D}/lib/firmware/brcm/
 }
 
-FILES_${PN} = "/system/etc/*"
+PACKAGES =+ "${PN}-wifi \
+	${PN}-bt \
+"
+
+FILES_${PN}-wifi = "/system/etc/*"
+FILES_${PN}-bt = "/lib/firmware/brcm/*"
