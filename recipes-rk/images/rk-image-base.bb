@@ -15,6 +15,7 @@ inherit core-image
 CORE_IMAGE_EXTRA_INSTALL += " \
 	resize2fs \
 	dvfs-rules \
+	firmware-rk \
 	${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
 						'weston weston-init weston-examples \
