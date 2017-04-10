@@ -15,5 +15,7 @@ do_install () {
 	install -m 0755 ${WORKDIR}/dvfs-rules.sh ${D}${sysconfdir}/init.d/dvfs-rules.sh
 }
 
+RDEPENDS_${PN} = "bash"
+
 INITSCRIPT_NAME = "dvfs-rules.sh"
 INITSCRIPT_PARAMS = "start 22 5 3 ."
