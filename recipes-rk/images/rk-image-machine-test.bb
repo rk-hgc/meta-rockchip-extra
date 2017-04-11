@@ -12,6 +12,7 @@ IMAGE_FEATURES += " \
 require recipes-rk/images/rk-image-multimedia.bb
 
 CORE_IMAGE_EXTRA_INSTALL += " \
+	openssh \
 	sshfs-fuse \
 	dhcp-client \
 	glmark2 \
