@@ -20,7 +20,6 @@ TASK_INSTALL = " \
 RF_INSTALL = " \
 	firmware-rk-wifi \
 	firmware-rk-bt \
-	brcm-patchram-plus \
 "
 
 CORE_IMAGE_EXTRA_INSTALL += " \
