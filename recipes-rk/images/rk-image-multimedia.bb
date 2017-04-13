@@ -7,5 +7,6 @@ require recipes-rk/images/rk-image-base.bb
 
 CORE_IMAGE_EXTRA_INSTALL += " \
 	alsa-utils \
+	libdrm-rockchip \
 	packagegroup-rk-gstreamer-full \
 "
