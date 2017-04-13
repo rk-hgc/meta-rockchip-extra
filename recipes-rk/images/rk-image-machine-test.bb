@@ -11,11 +11,19 @@ IMAGE_FEATURES += " \
 
 require recipes-rk/images/rk-image-multimedia.bb
 
+AUTO_TEST_INSTALL = "\
+	glmark2 \
+	cpufrequtils \
+	usbutils \
+	memtester \
+	stress \
+	libdrm-tests \
+"
+
 CORE_IMAGE_EXTRA_INSTALL += " \
 	openssh \
 	sshfs-fuse \
 	dhcp-client \
-	glmark2 \
-	cpufrequtils \
-	usbutils \
+	${AUTO_TEST_INSTALL} \
+	autotest \
 "
