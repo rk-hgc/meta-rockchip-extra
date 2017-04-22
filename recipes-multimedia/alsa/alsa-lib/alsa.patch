@@ -1,0 +1,872 @@
+--- a/src/conf/alsa.conf	2017-04-21 17:55:15.792808183 +0800
++++ b/src/conf/alsa.conf	2017-04-21 18:08:17.944810268 +0800
+@@ -54,6 +54,769 @@
+ 	}
+ ]
+ 
++##
++## Mixer Devices
++##
++ctl.SpeakerNormal{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++ctl.SpeakerRingtone{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++ctl.SpeakerVoip{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++ctl.HeadphoneNormal{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++ctl.HeadphoneRingtone{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++ctl.HeadphoneVoip{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++ctl.HeadsetNormal{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++clt.HeadsetRingtone{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++clt.HeadsetVoip{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++clt.FreeMicCapture{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++clt.MainMicCapture{
++	type hw
++	card 0 # Can replace with driver"s name from /proc/asound/cardx
++}
++
++##
++## Playback Devices
++##
++pcm.SpeakerNormal {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		]
++	}
++}
++pcm.SpeakerRingtone {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		]
++	}
++}
++pcm.SpeakerVoip {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUTVOL L Switch'
++			value on
++		}
++		{
++			name 'OUTVOL R Switch'
++			value on
++		}
++		{
++			name 'LOUT MIX OUTVOL L Switch'
++			value on
++		}
++		{
++			name 'LOUT MIX OUTVOL R Switch'
++			value on
++		}
++		{
++			name 'LOUT L Playback Switch'
++			value on
++		}
++		{
++			name 'LOUT R Playback Switch'
++			value on
++		}
++		]
++	}
++}
++pcm.HeadphoneNormal {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		{
++			name 'HP Playback Volume'
++			value.0 31
++			value.1 31
++		}
++		{
++			name 'DAC1 Playback Volume'
++			value.0 175
++			value.1 175
++		}
++		]
++	}
++}
++pcm.HeadphoneRingtone {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		{
++			name 'HP Playback Volume'
++			value.0 31
++			value.1 31
++		}
++		{
++			name 'DAC1 Playback Volume'
++			value.0 175
++			value.1 175
++		}
++		]
++	}
++}
++pcm.HeadphoneVoip {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		{
++			name 'HP Playback Volume'
++			value.0 31
++			value.1 31
++		}
++		{
++			name 'DAC1 Playback Volume'
++			value.0 175
++			value.1 175
++		}
++		]
++	}
++}
++pcm.HeadsetNormal {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		{
++			name 'HP Playback Volume'
++			value.0 31
++			value.1 31
++		}
++		{
++			name 'DAC1 Playback Volume'
++			value.0 175
++			value.1 175
++		}
++		]
++	}
++}
++pcm.HeadsetRingtone {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		{
++			name 'HP Playback Volume'
++			value.0 31
++			value.1 31
++		}
++		{
++			name 'DAC1 Playback Volume'
++			value.0 175
++			value.1 175
++		}
++		]
++	}
++}
++pcm.HeadsetVoip {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		{
++			name 'HP Playback Volume'
++			value.0 31
++			value.1 31
++		}
++		{
++			name 'DAC1 Playback Volume'
++			value.0 175
++			value.1 175
++		}
++		]
++	}
++}
++pcm.MainMicCapture {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'RECMIXL BST2 Switch'
++			value on
++		}
++		{
++			name 'RECMIXR BST2 Switch'
++			value on
++		}
++		{
++			name 'Stereo1 ADC L1 Mux'
++			value ADC
++		}
++		{
++			name 'Stereo1 ADC R1 Mux'
++			value ADC
++		}
++		{
++			name 'Stereo1 ADC MIXL ADC1 Switch'
++			value on
++		}
++		{
++			name 'Stereo1 ADC MIXR ADC1 Switch'
++			value on
++		}
++		{
++			name 'ADC Capture Switch'
++			value.0 on
++			value.1 on
++		}
++		{
++			name 'IN2 Boost'
++			value 2
++		}
++		{
++			name 'ADC Capture Volume'
++			value.0 47
++			value.1 47
++		}
++		]
++	}
++}
++pcm.FreeMicCapture {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'RECMIXL BST3 Switch'
++			value on
++		}
++		{
++			name 'RECMIXR BST3 Switch'
++			value on
++		}
++		{
++			name 'Stereo1 ADC L1 Mux'
++			value ADC
++		}
++		{
++			name 'Stereo1 ADC R1 Mux'
++			value ADC
++		}
++		{
++			name 'Stereo1 ADC MIXL ADC1 Switch'
++			value on
++		}
++		{
++			name 'Stereo1 ADC MIXR ADC1 Switch'
++			value on
++		}
++		{
++			name 'ADC Capture Switch'
++			value.0 on
++			value.1 on
++		}
++		{
++			name 'IN1 Boost'
++			value 3
++		}
++		{
++			name 'ADC Capture Volume'
++			value.0 47
++			value.1 47
++		}
++		]
++	}
++}
++
+ #
+ # defaults
+ #
+@@ -126,9 +889,71 @@
+ 
+ # redirect to load-on-demand extended pcm definitions
+ pcm.cards cards.pcm
++pcm.default {
++	type hooks
++	slave.pcm {
++		type hw
++		card 0
++		device 0 # Must be of type "digital audio playbak"
++	}
++	hooks.0 {
++		type ctl_elems
++		hook_args [
++		{
++			name 'DAC MIXL INF1 Switch'
++			value on
++		}
++		{
++			name 'DAC MIXR INF1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'Stereo DAC MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXL DAC L1 Switch'
++			value on
++		}
++		{
++			name 'OUT MIXR DAC R1 Switch'
++			value on
++		}
++		{
++			name 'HPOVOL L Switch'
++			value on
++		}
++		{
++			name 'HPOVOL R Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO MIX HPVOL Switch'
++			value on
++		}
++		{
++			name 'HPO L Playback Switch'
++			value on
++		}
++		{
++			name 'HPO R Playback Switch'
++			value on
++		}
++		]
++	}
++}
+ 
+-pcm.default cards.pcm.default
+-pcm.sysdefault cards.pcm.default
++
++#pcm.default cards.pcm.default
++#pcm.sysdefault cards.pcm.default
+ pcm.front cards.pcm.front
+ pcm.rear cards.pcm.rear
+ pcm.center_lfe cards.pcm.center_lfe
+@@ -182,7 +1007,7 @@
+ 			@func refer
+ 			name defaults.pcm.subdevice
+ 		}
+-	}		
++	}
+ 	type hw
+ 	card $CARD
+ 	device $DEV
+@@ -231,7 +1056,7 @@
+ 			@func refer
+ 			name defaults.pcm.subdevice
+ 		}
+-	}		
++	}
+ 	type plug
+ 	slave.pcm {
+ 		type hw
+@@ -331,7 +1156,6 @@
+ #
+ #  Control interface
+ #
+-	
+ ctl.sysdefault {
+ 	type hw
+ 	card {
